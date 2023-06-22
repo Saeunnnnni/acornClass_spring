@@ -2,7 +2,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/java,eclipse,windows,web,maven
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,eclipse,windows,web,maven
 
-Servers
+
 ### Eclipse ###
 .metadata
 bin/
@@ -118,11 +118,11 @@ buildNumber.properties
 *.asp
 *.cer
 *.csr
-*.css
+
 *.htm
-*.html
+
 *.js
-*.jsp
+
 *.php
 *.rss
 *.wasm
