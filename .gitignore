@@ -4,7 +4,12 @@
 
 
 ### Eclipse ###
+
 .metadata
+*.svg
+*.gif
+*.jpg
+*.png
 bin/
 tmp/
 *.tmp
