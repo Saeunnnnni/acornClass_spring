@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="file">
+	 <insert id="insert" parameterType="fileDto">
+      INSERT INTO board_file
+      (num, writer, title, orgFileName, saveFileName, fileSize, regdate)
+      VALUES(board_file_seq.NEXTVAL, #{writer}, #{title}, 
+         #{orgFileName}, #{saveFileName}, #{fileSize}, SYSDATE)
+   </insert>
+   <select id="getData" parameterType="int" resultType="fileDto">
+      SELECT num,writer,title,orgFileName,saveFileName,fileSize,regdate
+      FROM board_file
+      WHERE num=#{num}
+   </select>
+   <delete id="delete" parameterType="int">
+      DELETE FROM board_file
+      WHERE num=#{num}
+   </delete>
+   <select id="getList" parameterType="fileDto" 
+      resultType="fileDto">
+      SELECT *
+      FROM
+         (SELECT result1.*, ROWNUM AS rnum
+         FROM
+            (SELECT num,writer,title,orgFileName,saveFileName,
+               fileSize,regdate
+            FROM board_file            
+            ORDER BY num DESC) result1)
+      WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+   </select>
+   <select id="getCount" parameterType="fileDto" resultType="int">
+      SELECT NVL(MAX(ROWNUM), 0)
+      FROM board_file
+      
+      <choose>
+      	<when test="title != null and ofgFileName != null">
+      		where title LIKE '%'||#{title}||'%' or orgFileName LIKE '%'||#{orgFileName}||'%'
+      	</when>
+      	<when test="title != null">
+      		where title LIKE '%'||#{title}||'%' 
+      	</when>
+      	<when test="writer != null">
+      		where title LIKE '%'||#{writer}||'%' 
+      	</when>
+      </choose>
+      <!-- 
+      	
+	      where title LIKE xxx OR orgFileName LIKE xxx
+	      where title LIKE xxx
+	      where writer LIKE xxx
+       -->
+      
+      
+      <!-- 아래의 where절이 없을수도 있고 있다면 3개중에 하나가 들어가야한다.
+      		검색기능을 구현할때 where절이 들어가야 어떤 검색어를 설정할지 정할 수 있다. 
+      		동적인 sql문 작성이 필요하다 .
+      		ex) 전체 조회 될때는 where절이 없어야 하고 
+      			title이나 file명을 검색할때, title만 검색할때 등등 
+      		검색 키워드를 fileDto = 파라미터에 담아서 전달 
+      		
+       -->
+   </select>
+</mapper>
+
+
+
+
+
+
+
+
+
