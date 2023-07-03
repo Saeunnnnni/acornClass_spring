@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gallery">
+	<insert id="insert" parameterType="galleryDto">
+		insert into board_gallery
+		(num, writer, caption, imagePath, regdate)
+		values(board_gallery_se.NEXTVAL, #{writer}, #{caption}, #{imagePath}, SYSDATE) 
+	</insert>
+	<select id="getData" parameterType="int" resultType="galleryDto">
+		select num, writer, caption, imagePath,regdate
+		from board_gallery
+		where num=#{num} 
+	</select>
+	<delete id="delete" parameterType="int">
+		delete from board_gallery
+		where num=#{num}
+	</delete>
+	
+	<select id="getList" parameterType="galleryDto" resultType="galleryDto">
+		SELECT *
+      FROM
+         (SELECT result1.*, ROWNUM AS rnum
+         FROM
+            (SELECT num,writer,caption,imagePath,regdate
+            FROM board_file            
+            ORDER BY num DESC) result1)
+      WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+	</select>
+	
+	<update id="update" parameterType="galleryDto">
+		update board_gallery
+		set caption=#{caption}, imagePath=#{imagePath}
+		where num=#{num}
+	</update>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+

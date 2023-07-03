@@ -29,12 +29,14 @@
             ORDER BY num DESC) result1)
       WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
    </select>
+   
+   <!-- resultType = int! rownum중에서 큰 숫자를 결과로 반환해야하기 때문에  -->
    <select id="getCount" parameterType="fileDto" resultType="int">
       SELECT NVL(MAX(ROWNUM), 0)
       FROM board_file
       
       <choose>
-      	<when test="title != null and ofgFileName != null">
+      	<when test="title != null and orgFileName != null">
       		where title LIKE '%'||#{title}||'%' or orgFileName LIKE '%'||#{orgFileName}||'%'
       	</when>
       	<when test="title != null">

@@ -13,6 +13,7 @@
 			<c:when test="${empty sessionScope.id }">
 				<a href="${pageContext.request.contextPath}/users/loginform">로그인</a>
 				<a href="${pageContext.request.contextPath}/users/signup_form">회원가입</a>
+				
 			</c:when>
 			<c:otherwise>
 				<p>
@@ -26,6 +27,9 @@
 		<ul>
 			
 				<li><a href="file/list">자료실 목록보기</a></li>
+				<li><a href="${pageContext.request.contextPath}/cafe/list">글 목록보기</a></li>
+				<li><a href="${pageContext.request.contextPath}/gallery/list">갤러리 목록보기</a></li>
+				
 			
 		</ul>
 		
