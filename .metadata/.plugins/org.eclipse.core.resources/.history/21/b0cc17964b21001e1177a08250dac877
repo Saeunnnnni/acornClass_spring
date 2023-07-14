@@ -1,0 +1,14 @@
+package test;
+
+public class MainClass {
+	  
+	public static void main(String[] args) {
+		printNames();
+		printNames("aaa");
+		printNames("aaa","bbb");
+		printNames("aaa","bbb","ccc");
+	}
+	public static void printNames(String... names) {
+		
+	}
+}

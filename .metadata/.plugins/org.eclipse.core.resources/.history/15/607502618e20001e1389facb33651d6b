@@ -1,0 +1,20 @@
+package com.example.boot07.member.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.example.boot07.member.dto.UsersDto;
+
+
+
+@Repository
+public class UsersDao {
+	@Autowired SqlSession session;
+	
+	public List<UsersDto> getList(){
+		return session.selectList("users.getList");
+	}
+}

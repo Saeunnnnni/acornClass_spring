@@ -1,0 +1,8 @@
+package com.example.aop.util;
+
+public class WritingUtil {
+	//생성자 
+	public WritiongUtil() {
+		System.out.println("WritionUtil 생성자");
+	}
+}

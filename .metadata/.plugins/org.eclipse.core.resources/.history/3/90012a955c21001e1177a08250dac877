@@ -1,0 +1,20 @@
+package com.example.boot6.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class ImageController {
+	
+	private String fileLocation;
+	
+	@GetMapping("/image/{imgaeName}")
+	@ResponseBody
+	public byte[] getImage(@PathVariable("imageName") String imageName) {
+		//imageName 에는 응답해줄 이미지의 이름이 들어있다.
+		
+		return null;
+	}
+}

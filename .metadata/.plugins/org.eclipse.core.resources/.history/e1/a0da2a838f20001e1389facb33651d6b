@@ -1,0 +1,56 @@
+package com.example.boot07.user.dao;
+
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.example.boot07.user.dto.UsersDto;
+
+
+
+@Repository
+public class UsersDao {
+	@Autowired SqlSession session;
+	
+	public List<UsersDto> getList(){
+		return session.selectList("member.getList");
+	}
+	
+	
+	public boolean isExist(String inputId) {
+		//전달된 아이디로 select 해서  
+		UsersDto dto=session.selectOne("users.getData", inputId);
+		//아이디 존재 여부를 알아내서 (null 이면 존재하지 않고, null 이 아니면 존재한다)
+		boolean isExist = dto==null ? false : true;
+		return isExist;
+	}
+
+
+	public void signup(UsersDto dto) {
+		session.insert("users.insert", dto);
+	}
+
+
+	public UsersDto getData(String id) {
+		
+		return session.selectOne("users.getData", id);
+	}
+
+	public void updatePwd(UsersDto dto) {
+		session.update("users.updatePwd", dto);
+	}
+
+
+	public void update(UsersDto dto) {
+		//email 과 profile 만 수정
+		session.update("users.update", dto);
+	}
+
+	
+	public void delete(String id) {
+		session.delete("users.delete", id);
+	}
+}

@@ -1,0 +1,5 @@
+package com.example.boot05.member.dto;
+
+public class MemberDto {
+
+}

@@ -1,0 +1,11 @@
+package com.example.boot6.Controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class FileController {
+	@GetMapping("/file/uploadform")
+	public String uploadform() {
+		return "file/uploadform";
+	}
+}

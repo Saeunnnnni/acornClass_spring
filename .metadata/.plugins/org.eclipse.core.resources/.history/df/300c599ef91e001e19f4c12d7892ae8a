@@ -1,0 +1,17 @@
+package com.example.aop.aspect;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component
+public class MemberAspect {
+	
+	@Around("execution(com.example.aop.util.MemberDto get*(..)")
+	Object test(ProceedingJoinPoint joinPoint) {
+		//aspect 가 적용된 메소드를 수행하고 리턴되는 값을 (참조값) 받아온다.
+		Object obj = joinPoint.proceed();
+	}
+}

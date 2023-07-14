@@ -1,0 +1,16 @@
+package com.project.myapp.member.dto;
+
+import org.springframework.web.multipart.MultipartFile;
+
+public class MemberDto {
+	
+	private int num;
+	private String writer;
+	private String title;
+	private String imapgePath;
+	private STring clob;
+	private int viewCount;
+	private String regdate;
+	private MultipartFile image;
+	
+	

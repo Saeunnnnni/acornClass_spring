@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 아래는 xml문서의 형식을 정하는 코드  -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">     
+
+	<select id="getData" parameterType="int" resultType="memberDto">
+		select num, name, addr
+		from member
+		where num=#{num}
+	</select>
+
+	<update id="update" parameterType="memberDto">
+		update member
+		set name=#{name}, addr=#{addr}
+		where num=#{num}
+	</update>  
+
+	<delete id="delete" parameterType="int">
+		delete from member
+		where num=#{num}
+		<!-- 파라미터type이 int이기 때문에 num에는 다른 문자가 와도 상관없다. -->
+	</delete>
+	     
+	<insert id="insert" parameterType="memberDto">
+		insert into member
+		(num, name, addr)
+		values(member_seq.nextval, #{name}, #{addr})		
+		<!-- MemberDto 의 필드명과 같으면 자동으로 binding된다 -->
+	</insert>
+	
+	<select id="getList"  resultType="memberDto">
+		select num, name, addr
+		from member
+		order by num ASC
+	</select>
+</mapper>

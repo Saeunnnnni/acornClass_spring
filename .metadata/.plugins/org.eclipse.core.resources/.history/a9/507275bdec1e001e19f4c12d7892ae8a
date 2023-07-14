@@ -1,0 +1,7 @@
+package com.example.aop.util;
+
+public class Messenger {
+	public void sendGreetion(String msg) {
+		System.out.println("오늘의 인사:"+ msg);
+	}
+}

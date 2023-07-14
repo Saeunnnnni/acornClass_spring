@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="Step04_Final"/>
+<aop-project name="Spring02_MyBatis"/>
+<aop-project name="Boot07_Final"/>
+<aop-project name="Boot6_WebConfig"/>
+<aop-project name="Spring03_Interceptor"/>
+<aop-project name="Spring01_Basic"/>
+<aop-project name="Boot01_Hello2"/>
+<aop-project name="Boot05_MyBatis"/>
+<aop-project name="Boot03_Controller"/>
+<aop-project name="Boot01_Hello"/>
+<aop-project name="Boot04_jsp"/>
+<aop-project name="Boot02_AOP"/>
+<aop-project name="Step05_project"/>
+</aop-reference-model>

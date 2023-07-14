@@ -1,0 +1,15 @@
+package com.example.hello;
+
+import org.springframework.context.annotation.Configuration;
+
+/*
+ * 
+ * 어떤 객체를 spring 이 생성해서 관리할지 설정(bean 설정)
+ * 
+ * xml 문서로 설정하던 bean 설정을 class 기반으로 한다.
+ */
+
+@Configuration
+public class JavaConfig {
+	
+}

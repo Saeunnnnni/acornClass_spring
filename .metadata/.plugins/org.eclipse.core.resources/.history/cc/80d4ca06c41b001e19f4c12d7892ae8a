@@ -1,0 +1,5 @@
+package com.project.myapp.user.service;
+
+public interface UsersServices {
+
+}

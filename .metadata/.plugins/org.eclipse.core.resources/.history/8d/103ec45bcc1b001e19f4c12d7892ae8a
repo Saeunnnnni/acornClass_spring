@@ -1,0 +1,7 @@
+package com.project.myapp.member.dao;
+
+import java.awt.List;
+
+public interface MemberDao {
+	List<MemberDto> getList(MemberDto dto);
+}

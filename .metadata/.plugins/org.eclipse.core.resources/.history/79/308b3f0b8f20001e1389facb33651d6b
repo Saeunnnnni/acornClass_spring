@@ -1,0 +1,5 @@
+package com.example.boot07.user.dao;
+
+public class UsersDao {
+
+}

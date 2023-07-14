@@ -1,0 +1,18 @@
+package com.example.hello2;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class Boot01Hello2Application {
+
+	public static void main(String[] args) {
+		//run() 메소드가 리턴해주는 ApplicationContext 객체의 참조값으 변수에 담고 
+		ApplicationContext ctx=SpringApplication.run(Boot01Hello2Application.class, args);
+		Car car1=ctx.getBean(Car.class);
+		car1.drive();
+	
+	}
+
+}

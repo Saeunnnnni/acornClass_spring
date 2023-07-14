@@ -1,0 +1,12 @@
+package com.example.aop.aspect;
+
+public class WritingAspect {
+	
+	public void prepare() {
+		System.out.println("파란색 pen을 준비해요!");
+	}
+	
+	public void end() {
+		System.out.println("pen을 닫고 마무리 해요 ! ");
+	}
+}

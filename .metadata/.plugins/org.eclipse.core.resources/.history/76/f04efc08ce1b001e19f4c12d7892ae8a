@@ -1,0 +1,18 @@
+package com.project.myapp.member.service;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.servlet.ModelAndView;
+
+import com.gura.spring04.gallery.dto.GalleryDto;
+import com.project.myapp.member.dto.MemberDto;
+
+public interface MemberService {
+	void getLsit(HttpServletRequest request);
+	void getDetail(ModelAndView mView, int num);
+	void saveContent(MemberDto dto);
+	void updateContent(MemberDto dto);
+	void deleteCountent(int num, HttpServletRequest request);
+	void getData(HttpServletRequest request);
+	ublic void saveImage(GalleryDto dto, HttpServletRequest request);
+}

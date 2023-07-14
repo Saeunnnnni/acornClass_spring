@@ -1,0 +1,58 @@
+package com.example.boot6.Controller;
+
+import java.io.File;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
+
+@Controller
+public class FileController {
+   @Value("${file.location}")
+   private String fileLocation;
+   
+   @GetMapping("/file/download")
+   public ResponseEntity<InputStreamResource> download(String orgFileName, 
+		   String saveFileName, long fileSize){
+	   
+	   return null;
+   }
+   
+   
+   @GetMapping("/file/uploadform")
+   public String uploadform() {
+      return "file/uploadform";
+   }
+   
+   
+   
+   @PostMapping("/file/upload")
+   public String upload(FileDto dto) {
+      /*
+       *  dto에 있는 정보를 이용해서 upload 폴더에 업로드된 파일을 저장
+       *  저장되는 파일명은 UUID로 만들기
+       */
+      //업로드된 파일의 정보를 가지고 있는 MultipartFile 객체의 참조값 얻어오기
+      MultipartFile myFile = dto.getMyFile();
+      //원본 파일명
+      String orgFileName = myFile.getOriginalFilename();
+      //파일의 크기
+      long fileSize = myFile.getSize();
+      //저장할 파일명 구성하기
+      String saveFileName = UUID.randomUUID().toString();      
+      String filePath = fileLocation + File.separator + saveFileName;
+      try {
+         //원하는 경로에 파일 저장하기
+         myFile.transferTo(new File(filePath));
+      }catch(Exception e) {
+         e.printStackTrace();
+      }
+      
+      return "file/upload";
+   }
+}

@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<div class="navbar-nav">
+      		<c:choose>
+      			<c:when test="${not empty id }">
+      				<a class = "nav-link"  href="${pageContext.request.contextPath }/users/private/info.jsp">${id }</a>
+      				<span class="nav-text">로그인중...</span>    	
+      				<a class = "nav-link"  href="${pageContext.request.contextPath }/users/logout.jsp">로그아웃</a>
+      			</c:when>
+      			<c:otherwise>
+      				<a class="nav-link" href="${pageContext.request.contextPath }/users/loginform.jsp">로그인</a>
+      				<a class="nav-link" href="${pageContext.request.contextPath }/users/signup_form.jsp">회원가입</a>
+      			</c:otherwise>
+      		</c:choose>
+      	
+      	</div>
+</body>
+</html>

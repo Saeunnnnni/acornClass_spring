@@ -1,0 +1,15 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>인덱스 페이지 입니다.</h1>
+	<ul>
+		<li><a href="hello">hello spring boot!</a></li>
+		<li><a href="hello2">hello spring boot!</a></li>
+	</ul>
+</body>
+</html>

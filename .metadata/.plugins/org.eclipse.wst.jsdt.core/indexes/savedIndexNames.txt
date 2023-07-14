@@ -1,0 +1,12 @@
+INDEX VERSION 1.4+C:\acorn_class\acornClass_spring\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1931981007.index
+2066386067.index
+491323773.index
+2842112177.index
+570428505.index
+2462199946.index
+1103566545.index
+1007776243.index
+197584663.index
+142498168.index
+2436399525.index

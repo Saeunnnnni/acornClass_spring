@@ -1,0 +1,20 @@
+package com.example.aop.aspect;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.example.aop.util.Messenger;
+
+@Configuration
+public class MessengerAspect {
+	
+	@Bean 
+	Messenger myMessenger() {
+		return new Messenger();
+	}
+	
+	@Bean
+	MessengerAspect msa() {
+		return new MessengerAspect();
+	}
+}

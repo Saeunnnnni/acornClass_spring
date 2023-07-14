@@ -1,0 +1,38 @@
+package com.project.myapp.user.dao;
+
+import com.project.myapp.users.dto.UsersDto;
+
+@Repository
+public class UsersDaoImpl implements UsersDao{
+
+	@Override
+	public boolean isExist(String inputId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void insert(UsersDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public UsersDto getData(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(UsersDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

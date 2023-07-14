@@ -1,0 +1,13 @@
+package com.project.myapp.member.service;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.project.myapp.member.dto.MemberDto;
+
+public interface MemberService {
+	void getLsit(HttpServletRequest request);
+	void getDetail(HttpServletRequest request);
+	void saveContent(MemberDto dto);
+	void updateContent(MemberDto dto);
+	void deleteCountent(int num, ttpServletRequestttpServletRequest request,)
+}

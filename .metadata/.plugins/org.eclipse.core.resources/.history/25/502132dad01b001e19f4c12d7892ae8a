@@ -1,0 +1,55 @@
+package com.project.myapp.member.service;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.project.myapp.member.dto.MemberDto;
+
+@Service
+public class MemberServiceImpl implements MemberService{
+
+	@Override
+	public void getLsit(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getDetail(ModelAndView mView, int num) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveContent(MemberDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateContent(MemberDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCountent(int num, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getData(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveImage(MemberDto dto, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

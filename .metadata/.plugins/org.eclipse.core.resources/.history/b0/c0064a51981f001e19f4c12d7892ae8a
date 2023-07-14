@@ -1,0 +1,4 @@
+##server port setting
+server.port=9000
+# context path settion
+server.servlet.context-path=/boot03

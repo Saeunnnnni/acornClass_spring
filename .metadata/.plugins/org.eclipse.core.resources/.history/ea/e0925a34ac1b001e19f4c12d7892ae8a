@@ -1,0 +1,10 @@
+package com.project.myapp.users.dto;
+
+public class UsersDto {
+	private String id;
+	private String pwd;
+	private String profile;
+	private String redgate;
+	
+	public UsersDto() {}
+}

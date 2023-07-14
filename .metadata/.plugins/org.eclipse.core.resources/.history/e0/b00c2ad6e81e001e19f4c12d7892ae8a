@@ -1,0 +1,31 @@
+package com.example.aop.aspect;
+
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component  //bean으로 만들기 위한 어노테이션
+public class WritingAspect {
+	
+	
+	/*
+	 * spring이 관리하는 bean 의 메소드가 수행되기 이전(before)에 적용되는 aspect
+	 * [메소드 pattern]
+	 * 리턴 type => void
+	 * 메소드명 =>  write로 시작하는 메소드
+	 * 메소드의 매개변수 => 없음
+	 * wirte라는 모든 메소드가 실행되기전에 적용해라
+	 */
+	@Before("execution(void write*())")
+	public void prepare() {
+		System.out.println("파란색 pen을 준비해요!");
+	}
+	
+	@After("execution(void write*())")
+	public void end() {
+		System.out.println("pen을 닫고 마무리 해요 ! ");
+	}
+}

@@ -1,0 +1,64 @@
+package com.project.myapp.member.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.project.myapp.member.dto.MemberDto;
+
+@Repository
+public class MemberDaoImpl implements MemberDao{
+	
+	@Autowired
+	private SqlSession sessionl
+
+	@Override
+	public List<MemberDto> getList(MemberDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getCount(MemberDto dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void insert(MemberDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public MemberDto getData(int num) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MemberDto getData(MemberDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addViewCount(int num) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int num) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(MemberDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

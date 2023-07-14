@@ -1,0 +1,12 @@
+package com.example.boot03;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MemberController {
+	
+	@PostMapping("/member/insert")
+	public String insert() {
+		
+	}
+}

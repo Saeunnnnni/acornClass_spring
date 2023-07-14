@@ -1,0 +1,6 @@
+package com.project.myapp.user.dao;
+
+
+public class UserDaoImpl implements UsersDao{
+
+}

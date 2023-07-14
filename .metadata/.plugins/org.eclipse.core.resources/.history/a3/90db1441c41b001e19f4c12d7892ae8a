@@ -1,0 +1,12 @@
+package com.project.myapp.users.dto;
+
+public class UserDto {
+	private String id;
+	private String pwd;
+	private String email;
+	private String profile;
+	private String regdate;
+	
+	//디폴트 생성자
+	public UsersDto() {}
+}

@@ -1,0 +1,19 @@
+package com.example.hello;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+@SpringBootApplication
+public class Boot01HelloApplication {
+   /*
+       Spring Boot Application 의 시작점, 도입점이 되는 main 메소드
+   */
+   public static void main(String[] args) {
+      SpringApplication.run(Boot01HelloApplication.class, args);
+      
+      ApplicationContext ctx= new ClassPathXmlApplicationContext("config.xml");
+   }
+
+}

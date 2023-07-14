@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<select id="getList" parameterType="memberDto" resultType="memberDto">
+      SELECT *
+      FROM
+         (SELECT result1.*, ROWNUM AS rnum
+         FROM
+            (SELECT num,writer,title,content,imagePath,viewCount,regdate
+            FROM member_board
+           
+            ORDER BY num DESC) result1)
+     WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+      
+      
+   </select>
+   
+     <select id="getCount" parameterType="memberDto" resultType="int">
+      SELECT NVL(MAX(ROWNUM), 0)
+      FROM member_board
+      
+   </select>  
+   
+   <insert id="insert" parameterType="memberDto">
+      INSERT INTO member_board
+      (num, writer,title,content,imagePath,viewCount,regdate)
+      VALUES(member_board_seq.NEXTVAL, #{writer}, #{title}, #{imagePath}
+         #{content}, #{viewCount}, SYSDATE)
+   </insert>
+   
+     <select id="getData" parameterType="int" resultType="memberDto">
+      SELECT result1.*
+      FROM
+         (SELECT num,writer,title,content,imagePath,viewCount,TO_CHAR(regdate, 'YY.MM.DD HH24:MI') AS regdate,
+            LAG(num, 1, 0) OVER (ORDER BY num DESC) nextNum,
+               LEAD(num, 1, 0) OVER (ORDER BY num DESC) prevNum
+          FROM member_board) result1
+      WHERE num=#{num}
+   </select>
+   
+   <select id="getData2" parameterType="memberDto" resultType="memberDto">
+      SELECT result1.*
+      FROM
+         (SELECT num,writer,title,imagePath,content,viewCount,TO_CHAR(regdate, 'YY.MM.DD HH24:MI') AS regdate,
+            LAG(num, 1, 0) OVER (ORDER BY num DESC) nextNum,
+               LEAD(num, 1, 0) OVER (ORDER BY num DESC) prevNum
+          FROM member_board
+         
+          ) result1
+      WHERE num=#{num}
+   </select>
+   
+      <update id="addViewCount" parameterType="int">
+      UPDATE member_board
+      SET viewCount=viewCount+1
+      WHERE num=#{num}
+   </update>
+   
+   
+      <delete id="delete" parameterType="int">
+      DELETE FROM member_board
+      WHERE num=#{num}
+   </delete>
+   
+     <update id="update" parameterType="memberDto">
+      UPDATE member_board
+      SET title=#{title}, content=#{content}
+      WHERE num=#{num}
+   </update>
+</mapper>
+
+
+
+
+
+
+
+
+

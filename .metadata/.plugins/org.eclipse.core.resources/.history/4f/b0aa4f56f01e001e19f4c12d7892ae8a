@@ -1,0 +1,35 @@
+package com.example.aop.aspect;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+import com.example.aop.util.Messenger;
+
+@Configuration
+public class MessengerAspect {
+	
+	@Around("execution(void send*(..))")
+	void checkGreetion(ProceedingJoinPoint joinPoint) throws Throwable{
+		Object[] args= joinPoint.getArgs();
+		for(Object tmp:args) {
+			//만일 String type이면 
+			if(tmp instanceof String) {
+				//원래 type으로 casting
+				String msg=(String)tmp;
+				System.out.println("aspect 에서 읽어낸 내용 : " + msg);
+				if(msg.contains("멍청이")) {
+					//원래 type으로 casting
+					
+					System.out.println("멍청이는 금지된 단어입니다");
+					return;
+				}
+			}
+		}
+		
+		joinPoint.proceed();
+		System.out.println("aspect가 적용된 메소드를 리턴했습니다.");
+	}
+}

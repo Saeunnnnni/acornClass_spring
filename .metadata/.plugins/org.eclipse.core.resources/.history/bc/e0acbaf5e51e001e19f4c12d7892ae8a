@@ -1,0 +1,27 @@
+package com.example.aop;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.aop.util.WritingUtil;
+
+
+/*
+ * 
+ * @SpringBootApplication 어노테이이션이 붙어 있ㄴ느 main 메소드가 존재하는 이 패키지를 포함해서 
+ * 하위의 모든 페키지에 component scan이 자동으로 일어난다.
+ */
+@SpringBootApplication
+public class Boot02AopApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Boot02AopApplication.class, args);
+	
+		
+		WritingUtil util=ctx.getBean(WritionUtil.class);
+		util.writeLetter();
+		util.writeReport();
+		util.writeDiary();;
+	}
+
+}

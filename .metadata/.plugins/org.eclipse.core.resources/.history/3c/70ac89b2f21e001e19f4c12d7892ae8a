@@ -1,0 +1,59 @@
+package com.example.aop.aspect;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+import com.example.aop.util.Messenger;
+
+@Configuration
+public class MessengerAspect {
+	
+	@Around("execution(void send*(..))")
+	void checkGreetion(ProceedingJoinPoint joinPoint) throws Throwable{
+		Object[] args= joinPoint.getArgs();
+		for(Object tmp:args) {
+			//만일 String type이면 
+			if(tmp instanceof String) {
+				//원래 type으로 casting
+				String msg=(String)tmp;
+				System.out.println("aspect 에서 읽어낸 내용 : " + msg);
+				if(msg.contains("멍청이")) {
+					System.out.println("멍청이는 금지된 단어입니다");
+					return; //메소드 끝내기 
+				}
+			}
+		}
+		
+		//aspect가 적용된 메소드가 호출 되기 직전에 할 작업은 여기서 한다.
+		//proceed()를 호출해야 aspect가 적용된 메소드가 실행이 된다.
+		joinPoint.proceed();
+		
+		
+		//aspect가 적용된 메소드가 호출 되기 직후에 할 작업은 여기서 한다.
+		System.out.println("aspect가 적용된 메소드를 리턴했습니다.");
+	}
+	
+	
+	/*
+	 * return type은 String이고 
+	 * get으로 시작은 메소드이고
+	 * 메소드에 전달되는 인자는 없다.
+	 * java.lang 패키지에 있ㄴ는 type은 패키지명 생략 가능 
+	 *
+	 * 
+	 */
+	
+	@Around("execution(String com.example.aop.util.*.get*())")
+	Object checkReturn(ProceedingJoinPoint joinPoint)throws Throwable{
+		
+		//aspect가 적용된 메소드를 수행하고 리컨되는 데이터 받아오기 
+		Object obj=joinPoint.proceed();
+		//원래 type으로 casting 해서 조사해 볼수가 있다,
+		String a =(String)obj;
+		//조사후 아에 다른 값을 리턴해줄수도 있다.
+		return "놀자 놀자";
+	}
+}

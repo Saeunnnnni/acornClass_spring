@@ -1,0 +1,15 @@
+1688623774272	Rename type 'loginInterceptor'
+1688623835823	Delete element
+1688623838328	Delete element
+1688623923666	Rename type 'UsersServices'
+1688624032585	Rename type 'UserDto'
+1688624663538	Delete element
+1688624858389	Rename package 'com.project.myapp.user.dao'
+1688624867527	Rename package 'com.project.myapp.user.service'
+1688624875881	Rename package 'com.project.myapp.user.controller'
+1688625310242	Rename resource 'login_form.jsp'
+1688625927015	Rename resource 'logput.jsp'
+1688626179103	Move 'list.jsp' to 'member'
+1688630295919	Rename resource 'MemberController.xml'
+1688635725211	Delete element
+1688717504247	Delete element
